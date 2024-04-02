@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
         display: flex;
-        flex-direction: column; /* Zet de hoofdcontainer om in kolommen */
+        flex-direction: column; 
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -17,43 +17,43 @@
     
     .image-container {
         display: flex;
-        justify-content: space-around; /* Verdeel de ruimte gelijkmatig tussen de afbeeldingen */
-        width: 80%; /* Relatieve breedte aan de pagina */
+        justify-content: space-around;
+        width: 80%; 
     }
 
     .image-container img {
-        width: 200px; /* Vaste breedte van de afbeeldingen */
-        height: auto; /* Behoud de aspect ratio */
-        object-fit: cover; /* Behoud de aspect ratio en bedek de ruimte */
-        transition: transform 0.3s ease; /* Overgang voor vergroting */
-        cursor: pointer; /* Verander de cursor naar pointer */
+        width: 200px; 
+        height: auto; 
+        object-fit: cover;
+        transition: transform 0.3s ease; 
+        cursor: pointer; 
     }
 
     .image-text-container {
-        text-align: center; /* Centreer de tekst */
-        font-family: 'Comic Sans MS', cursive; /* Gebruik Comic Sans font */
-        font-size: 18px; /* Grootte van de tekst */
-        margin-top: 10px; /* Ruimte boven de tekst toevoegen */
+        text-align: center; 
+        font-family: 'Comic Sans MS', cursive; 
+        font-size: 18px; 
+        margin-top: 10px;
     }
 
     .image-text {
-        text-decoration: none; /* Verwijder onderlijning */
-        color: black; /* Standaardtekstkleur */
-        cursor: pointer; /* Verander de cursor naar pointer */
-        transition: font-weight 0.3s ease; /* Overgang voor dikgedrukt */
+        text-decoration: none; 
+        color: black; 
+        cursor: pointer; 
+        transition: font-weight 0.3s ease;
     }
 
     .image-text:hover {
-        font-weight: bold; /* Maak de tekst dikgedrukt wanneer gehoverd */
+        font-weight: bold; 
     }
 
     .image-container div:hover .image-text {
-        font-weight: bold; /* Maak de tekst dikgedrukt wanneer over de afbeelding gehoverd wordt */
+        font-weight: bold; 
     }
 
     .image-text a {
-        text-decoration: none !important; /* Verwijder onderlijning van de link binnen de tekst */
-        color: inherit; /* Gebruik de standaardtekstkleur */
+        text-decoration: none !important; 
+        color: inherit; 
     }
 
     .site-title a {
@@ -62,9 +62,9 @@
         left: 10px;
         font-family: 'Comic Sans MS', cursive;
         font-weight: bold;
-        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
-        color: black; /* Zwarte tekstkleur */
-        text-decoration: none; /* Verwijder onderlijning */
+        font-size: 2vw; 
+        color: black; 
+        text-decoration: none; 
     }
 </style>
 </head>
