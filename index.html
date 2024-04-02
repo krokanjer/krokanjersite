@@ -1,1 +1,162 @@
-<h1>hoi</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>krokanjer.nl</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        position: relative; /* Zorg ervoor dat de knop absoluut gepositioneerd kan worden */
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .left-column {
+        flex: 1;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right-column {
+        flex: 1;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subpages {
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
+        text-align: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .subpages li {
+        margin-bottom: 1.5vw; /* Relatieve marge (1.5% van de viewport breedte) */
+        transition: font-weight 0.3s ease;
+    }
+
+    .subpages li a {
+        text-decoration: none; /* Verwijder onderlijning */
+        color: black; /* Zwarte tekstkleur */
+    }
+
+    .subpages li:hover,
+    .subpages li.active {
+        font-weight: bold;
+    }
+
+    img {
+        width: 50%; /* Afbeelding neemt 50% van de rechterkolom in beslag */
+        height: auto;
+        transition: transform 0.3s ease; /* Voeg overgang toe voor soepele vergroting */
+        cursor: pointer; /* Verander cursor naar pointer wanneer erop wordt geklikt */
+    }
+
+    .site-title {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-family: 'Comic Sans MS', cursive;
+        font-weight: bold;
+        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
+    }
+
+    .music-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 0; /* Geen padding toegepast */
+        background-color: transparent; /* Geen achtergrondkleur */
+        color: #000000; /* Blauwe kleur voor het icoontje */
+        border: none; /* Geen rand */
+        cursor: pointer;
+        font-size: 1.5em; /* Grootte van het icoontje */
+    }
+
+    .og-site-link {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 1vw; /* Relatieve grootte (2% van de viewport breedte) */
+        color: black; /* Zwarte tekstkleur */
+        text-decoration: none; /* Verwijder onderlijning */
+    }
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="sound/meowziek.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<button class="music-button" onclick="toggleMusic()"><i id="musicIcon" class="fas fa-volume-mute"></i></button> <!-- Font Awesome luidspreker icoon -->
+
+<div class="site-title">krokanjer.nl</div>
+
+<div class="container">
+    <div class="left-column">
+        <ul class="subpages">
+            <li><a href="index.html"><b>home</b></a></li>
+            <li><a href="http://rolstoelkat.nl/">rolstoelkat merch</a></li>
+            <li><a href="robgeus.html">rob geus artikel</a></li>
+            <li><a href="linkjes.html">linkjes</a></li>
+        </ul>
+    </div>
+    <div class="right-column">
+        <img src="afbeeldingen/rolstoelkat.png" alt="rolstoelkat" onclick="playRandomSound()">
+    </div>
+</div>
+
+<a class="og-site-link" href="https://www.oorspronkelijkewebsite.nl">naar og site</a>
+
+<script>
+    var musicPlaying = true;
+    var bgMusic = document.getElementById('bgMusic');
+    var musicIcon = document.getElementById('musicIcon');
+
+    function toggleMusic() {
+        if (musicPlaying) {
+            bgMusic.pause();
+            musicPlaying = false;
+            musicIcon.className = 'fas fa-volume-mute'; // Verander icoontje naar geluid uit
+        } else {
+            bgMusic.play();
+            musicPlaying = true;
+            musicIcon.className = 'fas fa-volume-up'; // Verander icoontje naar geluid aan
+        }
+    }
+
+    function playRandomSound() {
+        var randomSounds = ['sound/meow1.mp3', 'sound/meow2.mp3', 'sound/meow3.mp3', 'sound/meow4.mp3'];
+        var randomIndex = Math.floor(Math.random() * randomSounds.length);
+        var sound = new Audio(randomSounds[randomIndex]);
+        sound.play();
+        enlargeImage(); // Vergroot de afbeelding
+    }
+
+    function enlargeImage() {
+        var img = document.querySelector('.right-column img');
+        img.style.transform = 'scale(1.2)'; // Vergroot de afbeelding met 20%
+        setTimeout(function() {
+            img.style.transform = 'scale(1)'; // Herstel de grootte na 0.5 seconde
+        }, 500);
+    }
+</script>
+
+</body>
+</html>

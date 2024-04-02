@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Placeholder Images</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* Zet de hoofdcontainer om in kolommen */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .image-container {
+        display: flex;
+        justify-content: space-around; /* Verdeel de ruimte gelijkmatig tussen de afbeeldingen */
+        width: 80%; /* Relatieve breedte aan de pagina */
+    }
+
+    .image-container img {
+        width: 200px; /* Vaste breedte van de afbeeldingen */
+        height: auto; /* Behoud de aspect ratio */
+        object-fit: cover; /* Behoud de aspect ratio en bedek de ruimte */
+        transition: transform 0.3s ease; /* Overgang voor vergroting */
+        cursor: pointer; /* Verander de cursor naar pointer */
+    }
+
+    .image-text-container {
+        text-align: center; /* Centreer de tekst */
+        font-family: 'Comic Sans MS', cursive; /* Gebruik Comic Sans font */
+        font-size: 18px; /* Grootte van de tekst */
+        margin-top: 10px; /* Ruimte boven de tekst toevoegen */
+    }
+
+    .image-text {
+        text-decoration: none; /* Verwijder onderlijning */
+        color: black; /* Standaardtekstkleur */
+        cursor: pointer; /* Verander de cursor naar pointer */
+        transition: font-weight 0.3s ease; /* Overgang voor dikgedrukt */
+    }
+
+    .image-text:hover {
+        font-weight: bold; /* Maak de tekst dikgedrukt wanneer gehoverd */
+    }
+
+    .image-container div:hover .image-text {
+        font-weight: bold; /* Maak de tekst dikgedrukt wanneer over de afbeelding gehoverd wordt */
+    }
+
+    .image-text a {
+        text-decoration: none !important; /* Verwijder onderlijning van de link binnen de tekst */
+        color: inherit; /* Gebruik de standaardtekstkleur */
+    }
+
+    .site-title a {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-family: 'Comic Sans MS', cursive;
+        font-weight: bold;
+        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
+        color: black; /* Zwarte tekstkleur */
+        text-decoration: none; /* Verwijder onderlijning */
+    }
+</style>
+</head>
+<body>
+
+<div class="site-title">
+    <a href="index.html"><-terug</a>
+</div>
+
+<div class="image-container">
+    <div>
+        <a href="https://twitter.com/krokanjer">
+            <img src="afbeeldingen/twitter.png" alt="twitter">
+        </a>
+        <div class="image-text-container">
+            <a href="https://twitter.com/krokanjer" class="image-text">twitter</a>
+        </div>
+    </div>
+    <div>
+        <a href="https://www.youtube.com/c/krokanjer">
+            <img src="afbeeldingen/youtube.png" alt="youtube">
+        </a>
+        <div class="image-text-container">
+            <a href="https://www.youtube.com/c/krokanjer" class="image-text">youtube</a>
+        </div>
+    </div>
+    <div>
+        <a href="https://www.instagram.com/krokanjer/">
+            <img src="afbeeldingen/instagram.png" alt="instagram">
+        </a>
+        <div class="image-text-container">
+            <a href="https://www.instagram.com/krokanjer/" class="image-text">instagram</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
