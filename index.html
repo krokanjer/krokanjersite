@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>krokanjer.nl</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
 <style>
     body {
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-        position: relative; /* Zorg ervoor dat de knop absoluut gepositioneerd kan worden */
+        position: relative; 
     }
 
     .container {
@@ -37,20 +37,20 @@
 
     .subpages {
         font-family: 'Comic Sans MS', cursive;
-        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
+        font-size: 2vw; 
         text-align: center;
         list-style-type: none;
         padding: 0;
     }
 
     .subpages li {
-        margin-bottom: 1.5vw; /* Relatieve marge (1.5% van de viewport breedte) */
+        margin-bottom: 1.5vw; 
         transition: font-weight 0.3s ease;
     }
 
     .subpages li a {
-        text-decoration: none; /* Verwijder onderlijning */
-        color: black; /* Zwarte tekstkleur */
+        text-decoration: none; 
+        color: black;
     }
 
     .subpages li:hover,
@@ -59,10 +59,10 @@
     }
 
     img {
-        width: 50%; /* Afbeelding neemt 50% van de rechterkolom in beslag */
+        width: 50%; 
         height: auto;
-        transition: transform 0.3s ease; /* Voeg overgang toe voor soepele vergroting */
-        cursor: pointer; /* Verander cursor naar pointer wanneer erop wordt geklikt */
+        transition: transform 0.3s ease; 
+        cursor: pointer; 
     }
 
     .site-title {
@@ -71,19 +71,19 @@
         left: 10px;
         font-family: 'Comic Sans MS', cursive;
         font-weight: bold;
-        font-size: 2vw; /* Relatieve grootte (4% van de viewport breedte) */
+        font-size: 2vw; 
     }
 
     .music-button {
         position: absolute;
         top: 10px;
         right: 10px;
-        padding: 0; /* Geen padding toegepast */
-        background-color: transparent; /* Geen achtergrondkleur */
-        color: #000000; /* Blauwe kleur voor het icoontje */
-        border: none; /* Geen rand */
+        padding: 0; 
+        background-color: transparent; 
+        color: #000000;
+        border: none; 
         cursor: pointer;
-        font-size: 1.5em; /* Grootte van het icoontje */
+        font-size: 1.5em; 
     }
 
     .og-site-link {
@@ -91,9 +91,9 @@
         bottom: 10px;
         right: 10px;
         font-family: 'Comic Sans MS', cursive;
-        font-size: 1vw; /* Relatieve grootte (2% van de viewport breedte) */
-        color: black; /* Zwarte tekstkleur */
-        text-decoration: none; /* Verwijder onderlijning */
+        font-size: 1vw; 
+        color: black;
+        text-decoration: none; 
     }
 </style>
 </head>
@@ -104,7 +104,7 @@
   Your browser does not support the audio element.
 </audio>
 
-<button class="music-button" onclick="toggleMusic()"><i id="musicIcon" class="fas fa-volume-mute"></i></button> <!-- Font Awesome luidspreker icoon -->
+<button class="music-button" onclick="toggleMusic()"><i id="musicIcon" class="fas fa-volume-mute"></i></button>
 
 <div class="site-title">krokanjer.nl</div>
 
@@ -133,11 +133,11 @@
         if (musicPlaying) {
             bgMusic.pause();
             musicPlaying = false;
-            musicIcon.className = 'fas fa-volume-mute'; // Verander icoontje naar geluid uit
+            musicIcon.className = 'fas fa-volume-mute'; 
         } else {
             bgMusic.play();
             musicPlaying = true;
-            musicIcon.className = 'fas fa-volume-up'; // Verander icoontje naar geluid aan
+            musicIcon.className = 'fas fa-volume-up'; 
         }
     }
 
@@ -146,14 +146,14 @@
         var randomIndex = Math.floor(Math.random() * randomSounds.length);
         var sound = new Audio(randomSounds[randomIndex]);
         sound.play();
-        enlargeImage(); // Vergroot de afbeelding
+        enlargeImage();
     }
 
     function enlargeImage() {
         var img = document.querySelector('.right-column img');
-        img.style.transform = 'scale(1.2)'; // Vergroot de afbeelding met 20%
+        img.style.transform = 'scale(1.2)'; 
         setTimeout(function() {
-            img.style.transform = 'scale(1)'; // Herstel de grootte na 0.5 seconde
+            img.style.transform = 'scale(1)'; 
         }, 500);
     }
 </script>
