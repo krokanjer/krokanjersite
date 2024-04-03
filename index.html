@@ -36,7 +36,6 @@
     }
 
     .subpages {
-        /* font-family: 'Comic Sans MS', cursive; */
         font-size: 2vw; 
         text-align: center;
         list-style-type: none;
@@ -52,6 +51,11 @@
         text-decoration: none; 
         color: black;
     }
+
+    .subpages li:first-child a {
+    font-weight: bold;
+}
+
 
     .subpages li:hover,
     .subpages li.active {
@@ -69,7 +73,6 @@
         position: absolute;
         top: 10px;
         left: 10px;
-        /* font-family: 'Comic Sans MS', cursive; */
         font-weight: bold;
         font-size: 2vw; 
     }
@@ -90,11 +93,49 @@
         position: absolute;
         bottom: 10px;
         right: 10px;
-        font-family: 'Comic Sans MS', cursive;
         font-size: 1vw; 
         color: black;
         text-decoration: none; 
     }
+
+    .linkjes-content {
+    display: none;
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.link-img {
+    width: 80%;
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 5px; /* Decreased margin to make the text closer to the image */
+    transition: transform 0.3s ease; /* Added transition effect */
+}
+
+.linkjes-content p {
+    margin-top: 0px;
+    margin-bottom: 10px; /* Adjusted margin between image and text */
+    font-weight: normal; /* Default font weight */
+    transition: font-weight 0.3s ease; /* Added transition effect */
+}
+
+.linkjes-content .link-img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 5px; /* Decreased margin to make the text closer to the image */
+    transition: transform 0.3s ease; /* Added transition effect */
+}
+
+.linkjes-content .link-img:hover + p {
+    font-weight: bold; /* Apply bold font weight to the text below the hovered image */
+}
+
+.linkjes-content .link-img:hover {
+    transform: scale(1.1); /* Enlarge image on hover */
+}
+
+
+
 </style>
 </head>
 <body>
@@ -111,12 +152,20 @@
 <div class="container">
     <div class="left-column">
         <ul class="subpages">
-            <li><a href="index.html"><b>home</b></a></li>
+            <li><a href="index.html">home</a></li>
             <li><a href="http://rolstoelkat.nl/">rolstoelkat merch</a></li>
             <li><a href="robgeus.html">rob geus artikel</a></li>
             <li><a href="https://www.koekjes.net/berichten/schrijven.php?krokanjerz">gastenboek</a></li>
-            <li><a href="linkjes.html">linkjes</a></li>
+            <li><a href="#" onclick="showLinkjesContent()" >linkjes</a></li>
         </ul>
+        <div class="linkjes-content">
+            <a href="https://twitter.com/krokanjer"><img class="link-img" src="afbeeldingen/twitter.png" alt="twitter"></a>
+            <p>twitter</p>
+            <a href="https://youtube.com/c/krokanjer"><img class="link-img" src="afbeeldingen/youtube.png" alt="youtube"></a>
+            <p>youtube</p>
+            <a href="https://instagram.com/krokanjer"><img class="link-img" src="afbeeldingen/instagram.png" alt="instagram"></a>
+            <p>instagram</p>
+        </div>
     </div>
     <div class="right-column">
         <img src="afbeeldingen/rolstoelkat.png" alt="rolstoelkat" onclick="playRandomSound()">
@@ -142,21 +191,26 @@
         }
     }
 
-    function playRandomSound() {
-        var randomSounds = ['sound/meow1.mp3', 'sound/meow2.mp3', 'sound/meow3.mp3', 'sound/meow4.mp3'];
-        var randomIndex = Math.floor(Math.random() * randomSounds.length);
-        var sound = new Audio(randomSounds[randomIndex]);
-        sound.play();
-        enlargeImage();
-    }
+    function showLinkjesContent() {
+    var linkjesContent = document.querySelector('.linkjes-content');
+    var rightColumn = document.querySelector('.right-column');
+    var homeLink = document.querySelector('.subpages li:first-child a');
+    var linkjesLink = document.querySelector('.subpages li:last-child a');
+    
+    // Verwijder de rolstoelkat afbeelding uit de rechterkolom
+    rightColumn.innerHTML = '';
+    
+    // Voeg de linkjes content toe aan de rechterkolom
+    rightColumn.appendChild(linkjesContent);
+    linkjesContent.style.display = 'block';
 
-    function enlargeImage() {
-        var img = document.querySelector('.right-column img');
-        img.style.transform = 'scale(1.2)'; 
-        setTimeout(function() {
-            img.style.transform = 'scale(1)'; 
-        }, 500);
-    }
+    // Pas de stijl van de home-link aan
+    homeLink.style.fontWeight = 'normal';
+
+    // Pas de stijl van de linkjes-link aan
+    linkjesLink.style.fontWeight = 'bold';
+}
+
 </script>
 
 </body>
